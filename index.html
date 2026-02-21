@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You've Won a $1,000 Walmart Gift Card!</title>
+    <meta name="description" content="Claim your $1,000 Walmart Gift Card today! Shop groceries, electronics, home goods and more. Free to claim - limited time offer!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --walmart-blue: #0071CE;
+            --walmart-blue-dark: #005DA6;
+            --walmart-yellow: #FFC220;
+            --walmart-yellow-dark: #F0A800;
+            --success-green: #00A82D;
+            --text-dark: #1C1C1C;
+            --text-gray: #5A5A5A;
+            --bg-light: #F7F9FC;
+            --border: #E0E6ED;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        h1, h2, h3 { font-family: 'Rubik', sans-serif; font-weight: 800; line-height: 1.2; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ALERT BAR ===== */
+        .alert-bar {
+            background: var(--success-green);
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--success-green);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--walmart-blue);
+            padding: 16px 0;
+            border-bottom: 4px solid var(--walmart-yellow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .walmart-logo {
+            font-family: 'Rubik', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .walmart-spark {
+            width: 32px;
+            height: 32px;
+            background: var(--walmart-yellow);
+            transform: rotate(45deg);
+            position: relative;
+        }
+
+        .walmart-spark::before,
+        .walmart-spark::after {
+            content: '';
+            position: absolute;
+            background: var(--walmart-yellow);
+        }
+
+        .walmart-spark::before {
+            width: 32px;
+            height: 8px;
+            top: 12px;
+            left: 0;
+        }
+
+        .walmart-spark::after {
+            width: 8px;
+            height: 32px;
+            top: 0;
+            left: 12px;
+        }
+
+        .header-cta {
+            background: var(--walmart-yellow);
+            color: var(--text-dark);
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 194, 32, 0.4);
+        }
+
+        .header-cta:hover {
+            background: var(--walmart-yellow-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 194, 32, 0.5);
+        }
+
+        /* ===== WINNER HERO ===== */
+        .winner-hero {
+            background: linear-gradient(180deg, var(--walmart-blue) 0%, var(--walmart-blue-dark) 100%);
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle, var(--walmart-yellow) 3px, transparent 3px),
+                radial-gradient(circle, white 2px, transparent 2px);
+            background-size: 50px 50px, 80px 80px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.2;
+            animation: confetti-fall 10s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .winner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .trophy {
+            font-size: 100px;
+            display: block;
+            margin-bottom: 20px;
+            animation: trophy-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes trophy-bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .winner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--walmart-yellow);
+            color: var(--text-dark);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 20px rgba(255, 194, 32, 0.5);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .winner-hero h1 {
+            font-size: 64px;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .winner-hero h1 .amount {
+            color: var(--walmart-yellow);
+            font-size: 88px;
+            display: block;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .winner-subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 48px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        /* ===== GIFT CARD DISPLAY ===== */
+        .card-display {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .walmart-card {
+            background: linear-gradient(135deg, var(--walmart-blue) 0%, var(--walmart-blue-dark) 100%);
+            border-radius: 24px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 6px rgba(255, 194, 32, 0.3),
+                0 30px 70px rgba(0, 113, 206, 0.5);
+            transform: perspective(1000px) rotateY(0deg);
+            animation: card-reveal 1.5s ease-in-out infinite;
+        }
+
+        @keyframes card-reveal {
+            0%, 100% { transform: perspective(1000px) rotateY(0deg); }
+            50% { transform: perspective(1000px) rotateY(5deg); }
+        }
+
+        .card-shine {
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine-sweep 3s ease-in-out infinite;
+        }
+
+        @keyframes shine-sweep {
+            0% { left: -100%; }
+            50%, 100% { left: 200%; }
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-walmart-logo {
+            font-family: 'Rubik', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-spark {
+            width: 24px;
+            height: 24px;
+            background: var(--walmart-yellow);
+            transform: rotate(45deg);
+        }
+
+        .card-chip {
+            width: 56px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card-amount-display {
+            font-size: 96px;
+            font-weight: 900;
+            color: var(--walmart-yellow);
+            text-align: center;
+            font-family: 'Rubik', sans-serif;
+            margin: 24px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-type {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .claim-button {
+            background: var(--walmart-yellow);
+            color: var(--text-dark);
+            padding: 22px 64px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255, 194, 32, 0.5);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .claim-button::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .claim-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .claim-button:hover {
+            background: var(--walmart-yellow-dark);
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 194, 32, 0.6);
+        }
+
+        .claim-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            background: white;
+            padding: 40px 24px;
+            border-top: 4px solid var(--walmart-yellow);
+            border-bottom: 4px solid var(--walmart-yellow);
+        }
+
+        .countdown-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--walmart-blue);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .timer-box {
+            background: var(--walmart-blue);
+            padding: 24px 28px;
+            border-radius: 16px;
+            min-width: 90px;
+            text-align: center;
+            border: 3px solid var(--walmart-yellow);
+            box-shadow: 0 4px 15px rgba(0, 113, 206, 0.3);
+        }
+
+        .timer-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--walmart-yellow);
+            font-family: 'Rubik', sans-serif;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 13px;
+            color: white;
+            text-transform: uppercase;
+            margin-top: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== WHAT TO BUY ===== */
+        .shop-section {
+            padding: 80px 24px;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--walmart-blue);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 60px;
+            font-size: 20px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .category-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: var(--walmart-blue);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 113, 206, 0.15);
+        }
+
+        .category-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--walmart-blue);
+        }
+
+        .category-card p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== STEPS ===== */
+        .steps-section {
+            padding: 80px 24px;
+            background: white;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-num {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--walmart-blue) 0%, var(--walmart-blue-dark) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 900;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 24px rgba(0, 113, 206, 0.3);
+            border: 4px solid var(--walmart-yellow);
+        }
+
+        .step h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--walmart-blue);
+        }
+
+        .step p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits {
+            padding: 80px 24px;
+            background: var(--walmart-blue);
+            color: white;
+        }
+
+        .benefits .section-title {
+            color: white;
+        }
+
+        .benefits .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 194, 32, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--walmart-yellow);
+            transform: translateY(-6px);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .benefit-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--walmart-yellow);
+        }
+
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 80px 24px;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .testimonial {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 36px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .quote {
+            font-size: 72px;
+            color: var(--walmart-yellow);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            line-height: 1;
+        }
+
+        .stars {
+            color: var(--walmart-yellow);
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--walmart-blue) 0%, var(--walmart-blue-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--walmart-blue);
+        }
+
+        .author-location {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            padding: 100px 24px;
+            background: linear-gradient(135deg, var(--walmart-blue) 0%, var(--walmart-blue-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 194, 32, 0.15) 0%, transparent 70%);
+        }
+
+        .final-cta h2 {
+            font-size: 56px;
+            color: white;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1C1C1C;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 24px 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--walmart-yellow);
+        }
+
+        .footer p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .winner-hero h1 { font-size: 42px; }
+            .winner-hero h1 .amount { font-size: 64px; }
+            .section-title { font-size: 36px; }
+            .card-amount-display { font-size: 72px; }
+            .final-cta h2 { font-size: 38px; }
+            .timer-grid { gap: 12px; }
+            .timer-box { min-width: 75px; padding: 20px; }
+            .timer-value { font-size: 38px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Alert Bar -->
+    <div class="alert-bar">
+        <span class="check-icon">✓</span>
+        <span>CONFIRMED: You've Been Selected for $1,000 Walmart Gift Card!</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="walmart-logo">
+                    <div class="walmart-spark"></div>
+                    <span>Walmart</span>
+                </div>
+                <button class="header-cta" onclick="claimReward()">Claim Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Winner Hero -->
+    <section class="winner-hero">
+        <div class="confetti"></div>
+        <div class="container">
+            <div class="winner-content">
+                <span class="trophy">🏆</span>
+                <div class="winner-badge">
+                    <span>🎉</span>
+                    <span>Congratulations Winner!</span>
+                </div>
+                
+                <h1>
+                    You've Won a<br>
+                    <span class="amount">$1,000</span>
+                    Walmart Gift Card!
+                </h1>
+                
+                <p class="winner-subtitle">
+                    Shop groceries, electronics, home goods & everything in between - all on us!
+                </p>
+
+                <div class="card-display">
+                    <div class="walmart-card">
+                        <div class="card-shine"></div>
+                        <div class="card-header">
+                            <div class="card-walmart-logo">
+                                <div class="card-spark"></div>
+                                <span>Walmart</span>
+                            </div>
+                            <div class="card-chip"></div>
+                        </div>
+                        <div class="card-amount-display">$1,000</div>
+                        <div class="card-type">Gift Card</div>
+                    </div>
+                </div>
+
+                <button class="claim-button" onclick="claimReward()">
+                    <span>🎁 Claim My $1,000 Now!</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown-section">
+        <div class="container">
+            <div class="countdown-title">⏰ Claim Before This Offer Expires:</div>
+            <div class="timer-grid">
+                <div class="timer-box">
+                    <div class="timer-value" id="hours">23</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="minutes">59</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="seconds">45</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <div class="container">
+            <h2 class="section-title">Shop Everything at Walmart</h2>
+            <p class="section-subtitle">Use your $1,000 on anything in-store or online!</p>
+
+            <div class="categories-grid">
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">🛒</span>
+                    <h3>Groceries</h3>
+                    <p>Fresh produce, meat, dairy, pantry staples and more</p>
+                </div>
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">📱</span>
+                    <h3>Electronics</h3>
+                    <p>TVs, laptops, phones, gaming and tech accessories</p>
+                </div>
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">🏠</span>
+                    <h3>Home & Furniture</h3>
+                    <p>Decor, appliances, bedding and furniture</p>
+                </div>
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">👕</span>
+                    <h3>Clothing</h3>
+                    <p>Fashion for the whole family at great prices</p>
+                </div>
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">🧸</span>
+                    <h3>Toys & Games</h3>
+                    <p>Latest toys, board games and outdoor play</p>
+                </div>
+                <div class="category-card" onclick="claimReward()">
+                    <span class="category-icon">🚗</span>
+                    <h3>Auto</h3>
+                    <p>Tires, batteries, oil and car accessories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="steps-section">
+        <div class="container">
+            <h2 class="section-title">How to Claim Your $1,000</h2>
+            <p class="section-subtitle">3 simple steps to start shopping!</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Click "Claim Now"</h3>
+                    <p>Hit the claim button to verify your eligibility. Takes less than 2 minutes!</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Complete Verification</h3>
+                    <p>Answer quick questions to confirm you're the winner of this $1,000 gift card.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Start Shopping!</h3>
+                    <p>Receive your gift card instantly and shop online or at 4,700+ Walmart stores!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Claim Your Walmart Gift Card?</h2>
+            <p class="section-subtitle">Everything you need to know</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <h3>100% Free</h3>
+                    <p>Absolutely no cost. No purchase required. No credit card needed.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Instant Delivery</h3>
+                    <p>Get your $1,000 gift card code immediately after claiming.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🏪</span>
+                    <h3>4,700+ Stores</h3>
+                    <p>Use at any Walmart store nationwide or shop online.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Full $1,000 Value</h3>
+                    <p>The entire $1,000 is yours to spend on anything you want.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📅</span>
+                    <h3>Never Expires</h3>
+                    <p>No expiration date. Use it whenever you're ready to shop.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔒</span>
+                    <h3>Safe & Secure</h3>
+                    <p>Your information is protected with SSL encryption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Real Winners, Real Stories</h2>
+            <p class="section-subtitle">Join thousands who claimed their gift cards!</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="quote">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "I thought it was too good to be true but I got my $1,000 Walmart gift card! Used it to buy a new TV, groceries for the month, and still have $400 left. Amazing!"
+                    </p>
+                    <div class="author">
+                        <div class="author-avatar">JD</div>
+                        <div>
+                            <div class="author-name">James Davis</div>
+                            <div class="author-location">Dallas, TX</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="quote">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "This helped my family so much! Bought school supplies, new clothes for the kids, and stocked up on groceries. The process was super easy and quick. Thank you!"
+                    </p>
+                    <div class="author">
+                        <div class="author-avatar">MT</div>
+                        <div>
+                            <div class="author-name">Maria Torres</div>
+                            <div class="author-location">Phoenix, AZ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="quote">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Legit offer! Got my card in under 5 minutes. Already spent $500 on Christmas shopping. This is the best thing that happened to me this year. Don't hesitate, claim yours!"
+                    </p>
+                    <div class="author">
+                        <div class="author-avatar">RL</div>
+                        <div>
+                            <div class="author-name">Robert Lee</div>
+                            <div class="author-location">Atlanta, GA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Don't Miss Your $1,000!</h2>
+            <p>Limited time offer - claim your Walmart gift card before it expires</p>
+            <button class="claim-button" onclick="claimReward()">
+                <span>🎁 Claim My $1,000 Gift Card!</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms & Conditions</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <p>© 2026 OkWow Walmart Offer. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">
+                Walmart is a registered trademark. This is a promotional offer.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // CPA OFFER URL
+        const WALMART_OFFER_URL = 'https://www.af9m8trk.com/5XT11ATR/T6M12294/?s1=03';
+
+        function claimReward() {
+            console.log('🎁 Walmart Gift Card Claim - Redirecting to:', WALMART_OFFER_URL);
+            window.location.href = WALMART_OFFER_URL;
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            const endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    startCountdown();
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+        });
+    </script>
+</body>
+</html>
